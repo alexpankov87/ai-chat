@@ -1,6 +1,6 @@
 # AI Chat
 
-Тестовое задание — чат с AI через OpenRouter API.
+Чат с AI через OpenRouter API.
 
 ## Демка
 
