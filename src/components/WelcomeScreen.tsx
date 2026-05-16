@@ -1,23 +1,22 @@
 import React from 'react';
-import ChatIcon from '../assets/icons/ChatIcon';
 
 const WelcomeScreen: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center h-full px-4 pt-24">
-      {/* Иконка */}
-      <div className="w-14 h-14 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center mb-5 shadow-lg shadow-purple-500/20">
-        <ChatIcon />
+    <div className="flex flex-col h-full px-4 pt-24">
+      <div className="w-14 h-14 rounded-[10px] bg-[#1e4d9b] flex items-center justify-center mb-5">
+        <svg className="w-7 h-7 text-[#f2f4f9]" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+        </svg>
       </div>
 
-      {/* Заголовок */}
-      <h1 className="text-2xl font-semibold text-white mb-2">
-        Welcome to AI Chat
+      {/* Заголовок — по левому краю */}
+      <h1 className="text-[48px] font-semibold text-[#f2f4f9] mb-2 text-left">
+        Hi there! What would you like to know?
       </h1>
 
-      {/* Подзаголовок */}
-      <p className="text-gray-400 text-center max-w-md text-sm leading-relaxed">
-        Start a conversation with GPT-4o and explore the power of AI.
-        Type your message below to begin.
+      {/* Подзаголовок — по левому краю */}
+      <p className="text-[#a0b5d5] text-[22px] text-left max-w-md text-sm leading-relaxed">
+        Use one of the most common prompts below or ask your own question
       </p>
     </div>
   );

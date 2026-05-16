@@ -19,11 +19,9 @@ const InputBar: React.FC<InputBarProps> = ({
   onSubmit,
   isLoading,
   onError,
-  hasApiKey,
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Добавление распознанного текста к текущему значению
   const handleVoiceResult = (transcript: string) => {
     onChange(value + ' ' + transcript);
   };
@@ -31,7 +29,6 @@ const InputBar: React.FC<InputBarProps> = ({
   const { isRecording, startRecording, stopRecording, isSupported } =
     useSpeechRecognition(handleVoiceResult, onError);
 
-  // Автоматическая высота поля ввода
   useEffect(() => {
     const textarea = textareaRef.current;
     if (textarea) {
@@ -40,7 +37,6 @@ const InputBar: React.FC<InputBarProps> = ({
     }
   }, [value]);
 
-  // Отправка по Enter (без Shift)
   const onEnterPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
@@ -55,8 +51,7 @@ const InputBar: React.FC<InputBarProps> = ({
 
   return (
     <form onSubmit={onFormSubmit}>
-      <div className="bg-gray-800/80 backdrop-blur-lg border border-gray-700 rounded-2xl px-4 py-3 flex items-center gap-3 shadow-lg">
-        {/* Голосовой ввод */}
+      <div className="bg-[#072e6a] border border-[#123e81] rounded-2xl px-4 py-3 flex items-center gap-3 shadow-lg">
         {isSupported && (
           <button
             type="button"
@@ -65,7 +60,7 @@ const InputBar: React.FC<InputBarProps> = ({
             className={`p-2 rounded-full transition-all duration-200 shrink-0 self-end mb-0.5 ${
               isRecording
                 ? 'bg-red-500 text-white animate-pulse'
-                : 'text-gray-400 hover:text-white hover:bg-gray-700'
+                : 'text-[#2356a9] hover:text-white hover:bg-[#1e4e9c]'
             } disabled:opacity-50 disabled:cursor-not-allowed`}
             title={isRecording ? 'Остановить запись' : 'Голосовой ввод'}
           >
@@ -73,23 +68,21 @@ const InputBar: React.FC<InputBarProps> = ({
           </button>
         )}
 
-        {/* Поле ввода */}
         <textarea
           ref={textareaRef}
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={onEnterPress}
-          placeholder="Type your message here..."
-          disabled={isLoading || !hasApiKey}
+          placeholder="Ask whatever you want"
+          disabled={isLoading}
           rows={1}
-          className="grow bg-transparent text-white placeholder-gray-500 resize-none outline-none text-sm py-2 leading-relaxed disabled:opacity-50"
+          className="grow bg-transparent text-[#f3f5f9] placeholder-[#a0b5d5] resize-none outline-none text-sm py-2 leading-relaxed disabled:opacity-50"
         />
 
-        {/* Кнопка отправки */}
         <button
           type="submit"
-          disabled={!value.trim() || isLoading || !hasApiKey}
-          className="p-2 rounded-full bg-indigo-600 text-white hover:bg-indigo-700 transition-colors shrink-0 self-end mb-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+          disabled={!value.trim() || isLoading}
+          className="p-2 rounded-full bg-[#2356a9] text-white hover:bg-[#1e4e9c] transition-colors shrink-0 self-end mb-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? <SpinnerIcon /> : <SendIcon />}
         </button>

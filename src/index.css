@@ -2,12 +2,11 @@
 
 body {
   margin: 0;
-  background-color: #111827;
-  color: #ffffff;
+  background-color: #072e6a;
+  color: #f3f5f9;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Анимация появления сообщений */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -24,7 +23,6 @@ body {
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Кастомный скроллбар */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -34,10 +32,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #4b5563;
+  background: #1e4e9c;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
+  background: #2356a9;
 }

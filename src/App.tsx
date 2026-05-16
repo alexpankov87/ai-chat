@@ -77,14 +77,20 @@ function App() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col bg-gray-900">
-      <header className="bg-gray-800/50 backdrop-blur-lg border-b border-gray-700 px-6 py-3 flex items-center justify-between">
-        <h1 className="text-lg font-semibold text-white">AI Chat</h1>
+    <div className="h-screen flex flex-col">
+      {/* Верхняя панель */}
+      <header className="bg-[#072e6a] px-6 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          {/* Иконка диалога вместо текста AI Chat */}
+          <div className="w-8 h-8 rounded-full bg-[#072e6a] flex items-center justify-center">
+         
+          </div>
+        </div>
         <div className="flex items-center gap-2">
           {messages.length > 0 && (
             <button
               onClick={clearHistory}
-              className="p-2 text-gray-400 hover:text-red-400 hover:bg-gray-700 rounded-lg transition-colors text-sm"
+              className="p-2 text-[#a0b5d5] hover:text-red-400 hover:bg-[#1e4e9c] rounded-lg transition-colors text-sm"
               title="Очистить историю"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -94,7 +100,7 @@ function App() {
             </button>
           )}
           <button
-            className="p-2 text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors"
+            className="p-2 text-[#a0b5d5] hover:text-white hover:bg-[#1e4e9c] rounded-lg transition-colors"
             title="Настройки"
           >
             <SettingsIcon />
@@ -102,6 +108,7 @@ function App() {
         </div>
       </header>
 
+      {/* История сообщений */}
       <main className="flex-1 overflow-y-auto px-4 py-4">
         <div className="max-w-3xl mx-auto">
           {messages.length === 0 ? (
@@ -117,7 +124,8 @@ function App() {
         </div>
       </main>
 
-      <footer className="border-t border-gray-800 px-4 py-3">
+      {/* Поле ввода */}
+      <footer className="px-4 py-3">
         <div className="max-w-3xl mx-auto space-y-3">
           {error && <WarningBanner message={error} />}
 
@@ -129,10 +137,6 @@ function App() {
             onError={handleError}
             hasApiKey={true}
           />
-
-          <p className="text-center text-xs text-gray-600">
-            AI Chat can make mistakes. Check important info.
-          </p>
         </div>
       </footer>
     </div>
