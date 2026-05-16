@@ -4,7 +4,7 @@
 
 ## Демка
 
-[ai-chat-nine-ecru.vercel.app](https://ai-chat-nine-ecru.vercel.app)
+[Сюда тык](https://ai-chat-nine-ecru.vercel.app)
 
 ## Что под капотом
 
