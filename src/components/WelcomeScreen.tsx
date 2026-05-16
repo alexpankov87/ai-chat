@@ -11,7 +11,9 @@ const WelcomeScreen: React.FC = () => {
 
       {/* Заголовок — по левому краю */}
       <h1 className="text-[48px] font-semibold text-[#f2f4f9] mb-2 text-left">
-        Hi there! What would you like to know?
+        Hi there! 
+        <br />
+        What would you like to know?
       </h1>
 
       {/* Подзаголовок — по левому краю */}
